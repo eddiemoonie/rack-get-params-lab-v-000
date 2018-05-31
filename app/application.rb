@@ -26,14 +26,13 @@ class Application
       add_item = req.params["item"]
       if @@items.include? add_item
         @@items << add_item
-
+        resp.write "#{add_item} was added"
+      else
+        resp.write "We do not have that item!"
+      end
+    else
       resp.write "Path Not Found"
     end
-
-
-    elsif req.path.match(/sear/)
-      searc_term =
-
 
     resp.finish
   end
